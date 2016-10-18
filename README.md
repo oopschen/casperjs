@@ -10,4 +10,4 @@ casperjs
 
 ## Usage
 docker run --entrypoint="phantomjs" oopschen/phantomjs -v 
-docker run -v \`pwd\`:/home/casperjs/work oopschen/phantomjs ./work/[scriptfile]
+docker run -v \`pwd\`:/home/casperjs/work oopschen/phantomjs [scriptfile]
