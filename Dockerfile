@@ -12,18 +12,13 @@ ENV PATH=$PHATOMJS_HOME/bin:$CASPERJS_HOME/bin/:$PATH
 
 WORKDIR /home/casperjs
 
-# make directory for temp work
-RUN ls . && mkdir -p .temp/
-
 # install phatomjs
-RUN cd .temp/ && curl -L -O https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 \
-    && pwd && tar -xf -C /home/casperjs phantomjs-2.1.1-linux-x86_64.tar.bz2 &&  cd ..
+RUN curl -L -O https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 \
+    && tar -xf /home/casperjs phantomjs-2.1.1-linux-x86_64.tar.bz2 \
+    && rm ./phantomjs-2.1.1-linux-x86_64.tar.bz2
 
 # install casper
 RUN npm install -g casperjs@1.1.3
-
-# clean up
-RUN rm -rf ./temp
 
 ENTRYPOINT ["casperjs"]
 CMD ["selftest"]
