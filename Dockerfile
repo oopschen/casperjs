@@ -14,10 +14,8 @@ ENV PATH=$PHATOMJS_HOME/bin:$CASPERJS_HOME/bin:$PATH
 RUN cd /home/casperjs \
     && curl -L -O https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 \
     && tar -xf phantomjs-2.1.1-linux-x86_64.tar.bz2 \
-    && rm ./phantomjs-2.1.1-linux-x86_64.tar.bz2
-
-# install casper
-RUN npm install casperjs@1.1.3
+    && rm ./phantomjs-2.1.1-linux-x86_64.tar.bz2 \
+    && npm install casperjs@1.1.3
 
 WORKDIR /home/casperjs/work
 
