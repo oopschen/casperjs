@@ -17,7 +17,7 @@ RUN ls . && mkdir -p .temp/
 
 # install phatomjs
 RUN cd .temp/ && curl -L -O https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 \
-    && tar -xf -C /home/casperjs phantomjs-2.1.1-linux-x86_64.tar.bz2 &&  cd ..
+    && pwd && tar -xf -C /home/casperjs phantomjs-2.1.1-linux-x86_64.tar.bz2 &&  cd ..
 
 # install casper
 RUN npm install -g casperjs@1.1.3
